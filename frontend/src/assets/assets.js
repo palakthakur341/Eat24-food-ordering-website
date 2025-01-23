@@ -14,7 +14,7 @@ import linkedin_icon from './linkedin_icon.png';
 import play_store from './play_store.png';
 import app_store from './app_store.png';
 import cross_icon from './cross_icon.png';
-import header_img from './header_img.png'
+import header_img from './header_img.png';
 
 import twitter_icon from './twitter_icon.png';
 
