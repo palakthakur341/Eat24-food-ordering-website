@@ -1,6 +1,6 @@
 // import React from 'react'
 import {useContext} from 'react'
-import { StoreContext } from '../../context/Storecontext'
+import { StoreContext } from '../../context/StoreContext'
 import FoodItem from '../FoodItem/FoodItem'
 import PropTypes from 'prop-types';
 import './FoodDisplay.css';

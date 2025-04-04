@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './FoodItem.css'
 import { assets } from '../../assets/assets'
-import { StoreContext } from '../../context/Storecontext';
+import { StoreContext } from '../../context/StoreContext';
 const FoodItem = ({ id, name, price, description, image }) => {
     // const [itemCount,setItemCount]=useState(0);
     const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
