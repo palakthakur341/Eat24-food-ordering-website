@@ -5,6 +5,7 @@ import parcel_icon from './parcel_icon.png';
 import profile_icon from './profile_icon.png';
 import order_icon from './order_icon.png';
 import add_icon from './add_icon.png'; // Add this line
+export const url="https://eat24-food-ordering-website.onrender.com"
 
 export const assets={
     logo,
