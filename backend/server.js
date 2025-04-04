@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 //app configurations
 const app=express()
-const port=4000
+const port=process.env.PORT ||4000;
 
 //middleware use
 app.use(express.json()) //whenever we getting request from frontend to backend it is getting parsed through this json
