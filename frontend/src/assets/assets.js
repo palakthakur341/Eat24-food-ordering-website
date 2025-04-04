@@ -43,6 +43,16 @@ import food_14 from './food_14.png'
 import food_15 from './food_15.png'
 import food_16 from './food_16.png'
 import food_17 from './food_17.png'
+import food_18 from './food_18.png'
+import food_19 from './food_19.png'
+import food_20 from './food_20.png'
+import food_21 from './food_21.png'
+import food_22 from './food_22.png'
+import food_23 from './food_23.png'
+import food_24 from './food_24.png'
+import food_25 from './food_25.png'
+import food_26 from './food_26.png'
+
 
 import rating_starts from './rating_starts.png'
 
@@ -79,6 +89,7 @@ export const assets ={
     food_2,
     food_3,
     food_4, food_5,food_6,food_7,food_8,food_9,food_10,food_11,food_12,food_13,food_14,food_15,food_16,food_17,
+    food_18,food_19,food_20,food_21,food_22,food_23,food_24,food_25,food_26,
     rating_starts,
 
 }
@@ -207,7 +218,7 @@ export const food_list=[
     },
     {
         _id:"10",
-        name:"Greek salad",
+        name:"Fruit ice Cream",
         image: food_10,
         price:12,
         description: "Food provides essential nutrients for overall health and well being",
@@ -216,7 +227,7 @@ export const food_list=[
     },
     {
         _id:"11",
-        name:"cherry",
+        name:"  jar cherry Iceream",
         image: food_11,
         price:12,
         description: "Food provides essential nutrients for overall health and well being",
@@ -225,7 +236,7 @@ export const food_list=[
     },
     {
         _id:"12",
-        name:"icecream",
+        name:" Vanilla icecream",
         image: food_12,
         price:12,
         description: "Food provides essential nutrients for overall health and well being",
@@ -252,31 +263,105 @@ export const food_list=[
     },
     {
         _id:"15",
-        name:"Greek salad",
+        name:"Grilled sandwich",
         image: food_15,
         price:12,
         description: "Food provides essential nutrients for overall health and well being",
-        category: "salad"
+        category: "Sandwich"
 
     },
     {
         _id:"16",
-        name:"Greek salad",
+        name:"Bread Sandwich",
         image: food_16,
         price:12,
         description: "Food provides essential nutrients for overall health and well being",
-        category: "salad"
+        category: "Sandwich"
 
     },
     {
         _id:"17",
-        name:"Greek salad",
+        name:"Strawberry Cupcake",
         image: food_17,
-        price:12,
+        price:14,
         description: "Food provides essential nutrients for overall health and well being",
-        category: "salad"
+        category: "Cake"
 
     },
+    {
+        _id:"18",
+        name:"Vegan Cake",
+        image: food_18,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Cake"
+
+    },
+    {
+        _id:"19",
+        name:"Butterscotch Cake",
+        image: food_19,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Cake"
+
+    },
+    {
+        _id:"20",
+        name:"Sliced Cake",
+        image: food_20,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Cake"
+
+    },
+    {
+        _id:"21",
+        name:"Garlic Mushroom ",
+        image: food_21,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Pasta"
+
+    },
+    {
+        _id:"22",
+        name:"Fried CauliFlower",
+        image: food_22,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Rice"
+
+    },
+    {
+        _id:"23",
+        name:"Mix Veg Pulao ",
+        image: food_23,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Rice"
+
+    },
+    {
+        _id:"24",
+        name:"Rice Zuchini",
+        image: food_24,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Egg Rice"
+
+    },
+    {
+        _id:"25",
+        name:"butter Noddles",
+        image: food_25,
+        price:12,
+        description: "Food provides essential nutrients for overall health and well being",
+        category: "Pasta"
+
+    },
+    
+    
     
     
 ]

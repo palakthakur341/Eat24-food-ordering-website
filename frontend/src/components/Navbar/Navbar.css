@@ -45,9 +45,8 @@
   min-width:10px;
   min-height:10px;
   background-color: #EEA606;
-  border-radius: 5px;
-  top:10px;
-  
+  border-radius: 6px;
+  top:70px; 
 
 }
 @media (max-width:1050px) {
