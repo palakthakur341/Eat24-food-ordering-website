@@ -1,56 +1,92 @@
-// import React from 'react'
-import { createContext,useState } from "react";
-import {food_list} from "../assets/assets";
-export const StoreContext = createContext(null)
-import PropTypes from 'prop-types';
-const StoreContextProvider = ({children})=>{
-    const [cartItems,setCartItem] =useState({});
-    const addTocart=(itemId)=>{
-        if(!cartItems[itemId])
-        {
-            setCartItem((prev)=>({...prev,[itemId]:1}))
-        }
-        else{
-            setCartItem((prev)=>({...prev,[itemId]:prev[itemId]+1}))
-        }
+import { createContext, useEffect, useState } from "react";
+import { food_list, menu_list } from "../assets/assets";
+import axios from "axios";
+export const StoreContext = createContext(null);
 
-    }
-    const removeFromCart=(itemId)=>{
-        setCartItem((prev)=>({...prev,[itemId]:prev[itemId]-1}))
-    }
-    // useEffect(()=>{
-    //     console.log(cartItems);
-    // },[cartItems])
-    const getTotalCartAmount=()=>{
-        let TotalAmount=0;
-        for(const item in cartItems)
-        {   if(cartItems[item]>0){
-            let itemInfo=food_list.find((product)=>product._id===item);
-            TotalAmount+=itemInfo.price* cartItems[item];
+const StoreContextProvider = (props) => {
 
+    const url = "http://localhost:4000"
+    // const [food_list, setFoodList] = useState([]);
+     const [cartItems, setCartItems] = useState({});
+    const [token, setToken] = useState("")
+    const currency = "₹";
+    const deliveryCharge = 50;
+
+    const addToCart = async (itemId) => {
+        if (!cartItems[itemId]) {
+            setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
         }
+        else {
+            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+        }
+        if (token) {
+            await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
+        }
+    }
+
+    const removeFromCart = async (itemId) => {
+        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
+        if (token) {
+            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } });
+        }
+    }
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+             
+              if (cartItems[item] > 0) {
+                let itemInfo = food_list.find((product) => product._id === item);
+                totalAmount += itemInfo.price * cartItems[item];
+            }  
+            
             
         }
-        return TotalAmount;
+        return totalAmount;
     }
 
-    const contextValue ={
+    // const fetchFoodList = async () => {
+    //     const response = await axios.get(url + "/api/food/list");
+    //     setFoodList(response.data.data)
+    // }
+
+    // const loadCartData = async (token) => {
+    //     const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
+    //     setCartItems(response.data.cartData);
+    // }
+
+    // useEffect(() => {
+    //     async function loadData() {
+    //         await fetchFoodList();
+    //         if (localStorage.getItem("token")) {
+    //             setToken(localStorage.getItem("token"))
+    //             await loadCartData({ token: localStorage.getItem("token") })
+    //         }
+    //     }
+    //     loadData()
+    // }, [])
+
+    const contextValue = {
+        url,
         food_list,
+        menu_list,
         cartItems,
-        setCartItem,
-        addTocart,
+        addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        token,
+        setToken,
+        setCartItems,
+        currency,
+        deliveryCharge
+    };
 
-    }
-    console.log("Children passed to StoreContextProvider:", children);
     return (
         <StoreContext.Provider value={contextValue}>
-            {children}
+            {props.children}
         </StoreContext.Provider>
-    );
+    )
+
 }
-StoreContextProvider.propTypes = {
-    children: PropTypes.string, // You can change this depending on the type of 'category'
-  };
+
 export default StoreContextProvider;
