@@ -5,7 +5,7 @@ import { assets } from '../../../assets/assets'
 const Header = () => {
   return (
     <div className='header'>
-      <img src={assets.food_10} alt=""/>
+      <img src={assets.food_10} alt="food 10"/>
         <div className='header-contents'>
             <h2>order your favourite food</h2>
             <p>choose from the diverse menu featuring the delectablearray of dishes </p>
