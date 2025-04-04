@@ -6,6 +6,7 @@ import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import AppDownload from '../../components/AppDownload/AppDownload';
 import './Home.css';
 
+
 const Home = () => {
   const[category,setCategory]=useState('all');
   return (
