@@ -14,7 +14,7 @@ import linkedin_icon from './linkedin_icon.png';
 import play_store from './play_store.png';
 import app_store from './app_store.png';
 import cross_icon from './cross_icon.png';
-import header2_img from './header2_img.png';
+import header_img from './header_img.png';
 import profile_icon from './profile_icon.png';
 import bag_icon from './bag_icon.png';
 import logout_icon from './logout_icon.png';
@@ -61,7 +61,7 @@ import rating_starts from './rating_starts.png'
 
 
 export const assets ={
-    header2_img,
+    header_img,
     cross_icon,
     app_store,
     play_store,
