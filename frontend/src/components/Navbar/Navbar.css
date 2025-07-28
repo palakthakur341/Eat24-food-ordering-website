@@ -5,8 +5,10 @@
     align-items: center;
 
 }
-.Navbar.logo{
-    width:150px;
+.Navbar .logo {
+    width: 30vw;      
+    max-width: 200px; 
+    min-width: 100px;  
 }
 .navbar-menu{
     display: flex;

@@ -1,92 +1,67 @@
-import { createContext, useEffect, useState } from "react";
-import { food_list, menu_list } from "../assets/assets";
-import axios from "axios";
-export const StoreContext = createContext(null);
+@import "../../styles/variables.scss";
 
-const StoreContextProvider = (props) => {
+nav {
+  width: 100%;
+  height: 70px;
+  background-color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-    const url = "https://eat24-food-ordering-website.onrender.com"
-    // const [food_list, setFoodList] = useState([]);
-     const [cartItems, setCartItems] = useState({});
-    const [token, setToken] = useState("")
-    const currency = "₹";
-    const deliveryCharge = 50;
+  .left {
+    display: flex;
+    align-items: center;
 
-    const addToCart = async (itemId) => {
-        if (!cartItems[itemId]) {
-            setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-        }
-        else {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-        }
-        if (token) {
-            await axios.post(url + "/api/cart/add", { itemId }, { headers: { token } });
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-left: 20px;
+      color: $text-color;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
 
-    const removeFromCart = async (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
-        if (token) {
-            await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } });
-        }
+    .register {
+      background-color: #fece51;
+      color: black;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-left: 20px;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        background-color: darken(#fece51, 10%);
+      }
     }
 
-    const getTotalCartAmount = () => {
-        let totalAmount = 0;
-        for (const item in cartItems) {
-             
-              if (cartItems[item] > 0) {
-                let itemInfo = food_list.find((product) => product._id === item);
-                totalAmount += itemInfo.price * cartItems[item];
-            }  
-            
-            
+    .menu {
+      a {
+        @include sm {
+          display: none;
         }
-        return totalAmount;
+      }
+
+      .register {
+        background-color: #fece51;
+        color: black;
+      }
     }
-
-    // const fetchFoodList = async () => {
-    //     const response = await axios.get(url + "/api/food/list");
-    //     setFoodList(response.data.data)
-    // }
-
-    // const loadCartData = async (token) => {
-    //     const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
-    //     setCartItems(response.data.cartData);
-    // }
-
-    // useEffect(() => {
-    //     async function loadData() {
-    //         await fetchFoodList();
-    //         if (localStorage.getItem("token")) {
-    //             setToken(localStorage.getItem("token"))
-    //             await loadCartData({ token: localStorage.getItem("token") })
-    //         }
-    //     }
-    //     loadData()
-    // }, [])
-
-    const contextValue = {
-        url,
-        food_list,
-        menu_list,
-        cartItems,
-        addToCart,
-        removeFromCart,
-        getTotalCartAmount,
-        token,
-        setToken,
-        setCartItems,
-        currency,
-        deliveryCharge
-    };
-
-    return (
-        <StoreContext.Provider value={contextValue}>
-            {props.children}
-        </StoreContext.Provider>
-    )
-
+  }
 }
-
-export default StoreContextProvider;

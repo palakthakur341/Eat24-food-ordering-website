@@ -43,7 +43,7 @@ const createToken = (id) => {
 const registerUser = async (req, res) => {
     console.log("Register API hit with data:", req.body); // ✅ Logs incoming data
 
-    const { name, password, email } = req.body;
+    const { name, email,password } = req.body;
 
     try {
         // Checking if the user already exists
@@ -53,7 +53,9 @@ const registerUser = async (req, res) => {
         if (exists) {
             return res.json({ success: false, message: "User already exists" });
         }
-
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Password:", password);
         // Validating email format & strong password
         if (!validator.isEmail(email)) {
             return res.json({ success: false, message: "Please enter a valid Email" });
